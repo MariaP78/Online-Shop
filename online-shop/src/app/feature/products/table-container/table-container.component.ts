@@ -30,9 +30,7 @@ export class TableContainerComponent implements OnInit {
       () => {
         this.loadProducts();
         //console.log('s-a sters cu succes produsul cu id: ' + id);
-        this._snackBar.open(
-          'Product with id ' + id + ' was successfully deleted'
-        );
+        this._snackBar.open('Product was successfully deleted');
       },
       (error) => this._snackBar.open(error)
     );

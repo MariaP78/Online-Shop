@@ -16,6 +16,8 @@ import {
   MatSnackBarModule,
 } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [AppComponent, TableContainerComponent, TableComponent],
   imports: [
@@ -28,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
+    CommonModule,
   ],
   providers: [
     BackendService,
