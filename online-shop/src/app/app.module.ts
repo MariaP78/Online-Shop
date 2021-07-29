@@ -17,9 +17,20 @@ import {
 } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './feature/users/login/login.component';
+import { UserFormComponent } from './feature/users/user-form/user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [AppComponent, TableContainerComponent, TableComponent],
+  declarations: [
+    AppComponent,
+    TableContainerComponent,
+    TableComponent,
+    LoginComponent,
+    UserFormComponent,
+  ],
   imports: [
     MatTableModule,
     BrowserModule,
@@ -31,6 +42,9 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
     BrowserAnimationsModule,
     CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [
     BackendService,
