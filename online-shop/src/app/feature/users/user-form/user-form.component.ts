@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShortUser } from '../model/users.data';
 
 @Component({
@@ -9,10 +9,18 @@ import { ShortUser } from '../model/users.data';
 })
 export class UserFormComponent implements OnInit {
   @Output() submitForm: EventEmitter<ShortUser> = new EventEmitter<ShortUser>();
+
   constructor() {}
+
   loginForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
 
   ngOnInit(): void {}
