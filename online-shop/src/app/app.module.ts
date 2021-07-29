@@ -11,6 +11,11 @@ import { BackendService } from './backend/backend.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSnackBarModule,
+} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent, TableContainerComponent, TableComponent],
   imports: [
@@ -21,8 +26,13 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
   ],
-  providers: [BackendService],
+  providers: [
+    BackendService,
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 5000 } },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

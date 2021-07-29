@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductsData } from '../model/products.data';
 
 @Component({
@@ -8,6 +8,13 @@ import { ProductsData } from '../model/products.data';
 })
 export class TableComponent {
   @Input() data: ProductsData[] = [];
-  constructor() {}
+  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
   displayedColumns: string[] = ['id', 'name', 'category', 'price', 'delete'];
+
+  constructor() {}
+
+  //primeste un id si il da mai sus, catre parinte
+  deleteProduct(id: number): void {
+    this.delete.emit(id);
+  }
 }

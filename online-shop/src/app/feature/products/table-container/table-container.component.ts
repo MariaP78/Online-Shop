@@ -1,18 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductsService} from "../products.service";
-import {ProductsData} from "../model/products.data";
+import { ProductsService } from '../products.service';
+import { ProductsData } from '../model/products.data';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-table-container',
   templateUrl: './table-container.component.html',
-  styleUrls: ['./table-container.component.scss']
+  styleUrls: ['./table-container.component.scss'],
 })
 export class TableContainerComponent implements OnInit {
-
-  constructor(private productService: ProductsService) { }
+  constructor(
+    private productService: ProductsService,
+    private _snackBar: MatSnackBar
+  ) {}
   products: ProductsData[] = [];
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(products => this.products = products)}
+    this.loadProducts();
+  }
 
+  private loadProducts() {
+    this.productService
+      .getProducts()
+      .subscribe((products) => (this.products = products));
+  }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(
+      () => {
+        this.loadProducts();
+        //console.log('s-a sters cu succes produsul cu id: ' + id);
+        this._snackBar.open('Product successfully deleted');
+      },
+      (error) => this._snackBar.open(error)
+    );
+  }
 }
