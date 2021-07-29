@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
-import * as data from './mock/products.json';
-import {ProductsData} from "./model/products.data";
+import { Injectable} from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductsData } from './model/products.data';
+import { BackendService } from '../../backend/backend.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
+  api = 'http://localhost:3000';
+  productsEndpoint = '/products';
+  constructor(private service: BackendService) {}
 
-  constructor() { }
-
-  getProducts(): Observable<ProductsData[]>{
-    const products: ProductsData[] = (data as any).default;
-    return of(products);
+  getProducts(): Observable<ProductsData[]> {
+    return this.service.get(this.api + this.productsEndpoint);
   }
 }
