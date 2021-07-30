@@ -23,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './feature/header/header.component';
+import { ProductModalDialogComponent } from './feature/products/product-modal-dialog/product-modal-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { HeaderComponent } from './feature/header/header.component';
     LoginComponent,
     UserFormComponent,
     HeaderComponent,
+    ProductModalDialogComponent,
   ],
   imports: [
     MatTableModule,
@@ -47,6 +50,7 @@ import { HeaderComponent } from './feature/header/header.component';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
   ],
   providers: [
     BackendService,
