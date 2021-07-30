@@ -29,7 +29,7 @@ export class ProductModalDialogComponent implements OnInit {
     //console.log(this.data.id);
     this.service.getProductDetail(this.data.id).subscribe((result) => {
       this.productForm.patchValue(result);
-      this.productForm.disable();
+      if (!this.data.admin) this.productForm.disable();
     });
   }
 
