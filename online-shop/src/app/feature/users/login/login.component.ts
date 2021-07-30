@@ -22,10 +22,15 @@ export class LoginComponent implements OnInit {
   login(user: ShortUser) {
     this.service.login(user).subscribe(
       (data) => {
+        localStorage.setItem('user', JSON.stringify(data));
         this.router.navigate(['/products']);
         this._snackBar.open('Logged in successfully!');
       },
       (error) => console.log(this._snackBar.open('Login failed!'))
     );
+  }
+
+  logout() {
+    localStorage.removeItem('user');
   }
 }

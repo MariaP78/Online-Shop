@@ -22,6 +22,7 @@ import { UserFormComponent } from './feature/users/user-form/user-form.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HeaderComponent } from './feature/header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TableComponent,
     LoginComponent,
     UserFormComponent,
+    HeaderComponent,
   ],
   imports: [
     MatTableModule,
